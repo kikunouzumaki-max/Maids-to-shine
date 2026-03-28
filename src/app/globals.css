@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ═══════════════════════════════════════════════════════════
    MAIDS TO SHINE — Design System Tokens (Tailwind v4)
@@ -104,6 +105,16 @@
   --surface: #FFFFFF;
   --border: #E5E4DF;
 }
+
+  /* Ensure dark mode colors are active */
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --background: #0E1512;
+      --foreground: #EFF3F1;
+      --surface: #141C19;
+      --border: #263029;
+    }
+  }
 
 .dark {
   --background: #0E1512;

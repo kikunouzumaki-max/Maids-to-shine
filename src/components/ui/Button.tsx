@@ -53,10 +53,11 @@ export function Button(props: ButtonProps) {
   } = props;
 
   const classes = `
-    inline-flex items-center justify-center font-medium
+    items-center justify-center font-medium
     transition-all duration-[220ms]
     cursor-pointer select-none
     min-h-[44px]
+    ${className.includes('flex') || className.includes('hidden') ? '' : 'inline-flex'}
     ${variantClasses[variant]}
     ${sizeClasses[size]}
     ${className}
