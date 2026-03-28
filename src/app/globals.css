@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   MAIDS TO SHINE — Design System Tokens (Tailwind v4)
+   ═══════════════════════════════════════════════════════════ */
+
+@theme inline {
+  /* ── Primary: Aqua Teal ── */
+  --color-teal-50:  #E8F9F5;
+  --color-teal-100: #C2EFE4;
+  --color-teal-200: #85DECA;
+  --color-teal-300: #3ECBAF;
+  --color-teal-400: #1DB99A;
+  --color-teal-500: #0F9E82;
+  --color-teal-600: #0B7D67;
+  --color-teal-700: #085C4C;
+  --color-teal-800: #053D33;
+  --color-teal-900: #021F1A;
+
+  /* ── Secondary: Cobalt Blue ── */
+  --color-cobalt-50:  #EBF4FF;
+  --color-cobalt-100: #C8E2FF;
+  --color-cobalt-200: #93C4FF;
+  --color-cobalt-300: #5BA3F5;
+  --color-cobalt-400: #3387E8;
+  --color-cobalt-500: #1A6FD4;
+  --color-cobalt-600: #1359AD;
+  --color-cobalt-700: #0E4285;
+  --color-cobalt-800: #082B5E;
+  --color-cobalt-900: #031538;
+
+  /* ── Neutral: Warm Pearl ── */
+  --color-pearl-0:   #FFFFFF;
+  --color-pearl-50:  #FAFAF9;
+  --color-pearl-100: #F3F2EF;
+  --color-pearl-200: #E5E4DF;
+  --color-pearl-300: #C9C7C0;
+  --color-pearl-400: #A8A6A0;
+  --color-pearl-500: #7E7C77;
+  --color-pearl-600: #5A5855;
+  --color-pearl-700: #3C3B38;
+  --color-pearl-800: #252421;
+  --color-pearl-900: #131210;
+
+  /* ── WhatsApp ── */
+  --color-whatsapp: #25D366;
+
+  /* ── Semantic ── */
+  --color-success-bg:     #E8F9F0;
+  --color-success-text:   #0B7A45;
+  --color-success-border: #A3DFC0;
+  --color-warning-bg:     #FFF8E8;
+  --color-warning-text:   #8A5E00;
+  --color-warning-border: #F5D78A;
+  --color-danger-bg:      #FDECEA;
+  --color-danger-text:    #C0292A;
+  --color-danger-border:  #F5AAAA;
+  --color-info-bg:        #EBF4FF;
+  --color-info-text:      #1359AD;
+  --color-info-border:    #93C4FF;
+
+  /* ── Dark Mode Surface Colors ── */
+  --color-dark-bg:        #0E1512;
+  --color-dark-surface:   #141C19;
+  --color-dark-elevated:  #1C2620;
+  --color-dark-border:    #263029;
+  --color-dark-text:      #EFF3F1;
+  --color-dark-muted:     #94A89F;
+
+  /* ── Fonts ── */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+
+  /* ── Shadows ── */
+  --shadow-xs:    0 1px 2px rgba(0,0,0,.05);
+  --shadow-sm:    0 2px 6px rgba(0,0,0,.07);
+  --shadow-md:    0 4px 16px rgba(0,0,0,.09);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,.11);
+  --shadow-xl:    0 16px 64px rgba(0,0,0,.13);
+  --shadow-brand: 0 6px 20px rgba(15,158,130,.35);
+
+  /* ── Border Radius ── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ── Easing ── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:     cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Root & Dark Mode Variables
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --background: #FAFAF9;
+  --foreground: #252421;
+  --surface: #FFFFFF;
+  --border: #E5E4DF;
+}
+
+.dark {
+  --background: #0E1512;
+  --foreground: #EFF3F1;
+  --surface: #141C19;
+  --border: #263029;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--color-teal-500);
+  color: white;
+  font-weight: 500;
+  border-radius: 0 0 var(--radius-md) 0;
+}
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Brand Gradient Utility
+   ═══════════════════════════════════════════════════════════ */
+
+.brand-gradient {
+  background: linear-gradient(135deg, #1DB99A 0%, #1A6FD4 100%);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #1DB99A 0%, #1A6FD4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Animations
+   ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Fade up animation for hero elements */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 500ms var(--ease-out) forwards;
+    opacity: 0;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+
+  /* WhatsApp FAB pulse */
+  @keyframes wa-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+    }
+  }
+
+  .animate-wa-pulse {
+    animation: wa-pulse 2s ease-in-out infinite;
+  }
+
+  /* Skeleton shimmer */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, var(--color-pearl-100) 25%, var(--color-pearl-200) 50%, var(--color-pearl-100) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  .dark .animate-shimmer {
+    background: linear-gradient(90deg, var(--color-dark-surface) 25%, var(--color-dark-elevated) 50%, var(--color-dark-surface) 75%);
+    background-size: 200% 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Frosted Glass Navbar
+   ═══════════════════════════════════════════════════════════ */
+
+.navbar-frosted {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .navbar-frosted {
+  background: rgba(14, 21, 18, 0.85);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Focus Styles
+   ═══════════════════════════════════════════════════════════ */
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(29, 185, 154, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Custom Scrollbar
+   ═══════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pearl-300);
+  border-radius: var(--radius-full);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border);
+}
