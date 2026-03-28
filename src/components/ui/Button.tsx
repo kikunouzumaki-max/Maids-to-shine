@@ -11,7 +11,7 @@ interface ButtonBaseProps {
   className?: string;
 }
 
-interface ButtonAsButton extends ButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonAsButton extends Omit<ButtonBaseProps, 'children'>, ButtonHTMLAttributes<HTMLButtonElement> {
   href?: never;
   external?: never;
 }
