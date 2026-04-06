@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppFAB } from '@/components/layout/WhatsAppFAB';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import './globals.css';
 
 const displayFont = Cormorant_Garamond({
@@ -132,6 +133,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <ThemeProvider>
+          <ScrollReveal />
           <Navbar />
           <main id="main-content" className="flex-1">
             {children}
